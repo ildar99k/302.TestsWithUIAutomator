@@ -23,7 +23,7 @@ import lombok.Setter;
  * Created by kosh on 25/07/2017.
  */
 
-@NoArgsConstructor @Getter @Setter public class GenericEvent implements Parcelable {
+@NoArgsConstructor @Getter public class GenericEvent implements Parcelable {
 
     private long id;
     private String url;
