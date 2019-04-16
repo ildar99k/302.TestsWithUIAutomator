@@ -139,7 +139,7 @@ public class FastHubAboutActivity extends MaterialAboutActivity {
                         .setOnClickAction(() -> startActivity(new Intent(context, DonationActivity.class)))
                         .build())
                 .addItem(new MaterialAboutActionItem.Builder()
-                        .text("   " + "Changelog")
+                        .text(R.string.changelog)
                         .icon(ContextCompat.getDrawable(context, R.drawable.ic_track_changes))
                         .setOnClickAction(() -> new ChangelogBottomSheetDialog().show(getSupportFragmentManager(), "ChangelogBottomSheetDialog"))
                         .build())

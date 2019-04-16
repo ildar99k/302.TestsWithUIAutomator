@@ -147,7 +147,7 @@ class ThemeFragment : BaseFragment<ThemeFragmentMvp.View, ThemeFragmentPresenter
 
     private fun setTheme(theme: String) {
         Log.e("PrefHelper", "Can't save theme")
-//        PrefHelper.set(THEME, theme)
+        PrefHelper.set(THEME, theme)
         themeListener?.onThemeApplied()
     }
 

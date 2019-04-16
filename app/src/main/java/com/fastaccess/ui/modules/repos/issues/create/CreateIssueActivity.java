@@ -350,7 +350,7 @@ public class CreateIssueActivity extends BaseActivity<CreateIssueMvp.View, Creat
     }
 
     @OnClick(R.id.submit) public void onClick() {
-//        getPresenter().onSubmit(InputHelper.toString(title), savedText, login, repoId, issue, pullRequest, labelModels, milestoneModel, users);
+        Toast.makeText(this, "Message was sent", Toast.LENGTH_LONG).show();
     }
 
     @OnClick({R.id.addAssignee, R.id.addLabels, R.id.addMilestone}) public void onViewClicked(View view) {

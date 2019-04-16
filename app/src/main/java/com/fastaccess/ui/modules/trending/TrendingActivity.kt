@@ -102,9 +102,6 @@ class TrendingActivity : BaseActivity<TrendingMvp.View, TrendingPresenter>(), Tr
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        while(true) {
-            1 + 1;
-        }
         navMenu.itemIconTintList = null
         trendingFragment = supportFragmentManager.findFragmentById(R.id.trendingFragment) as TrendingFragment?
         navMenu.setNavigationItemSelectedListener({ item ->

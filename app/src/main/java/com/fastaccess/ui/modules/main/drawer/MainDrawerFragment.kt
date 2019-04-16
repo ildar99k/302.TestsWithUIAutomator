@@ -68,7 +68,7 @@ class MainDrawerFragment : BaseFragment<MainMvp.View, BasePresenter<MainMvp.View
                     item.itemId == R.id.trending -> activity.startActivity(Intent(activity, TrendingActivity::class.java))
                     item.itemId == R.id.reportBug -> activity.startActivity(CreateIssueActivity.startForResult(activity))
                     item.itemId == R.id.faq -> activity.startActivity(Intent(activity, PlayStoreWarningActivity::class.java))
-                    item.itemId == R.id.restorePurchase -> Log.e("Menu", "I'm broken")
+                    item.itemId == R.id.restorePurchase -> activity.startActivity(Intent(activity, CheckPurchaseActivity::class.java))
                 }
             }
         }, 250)
