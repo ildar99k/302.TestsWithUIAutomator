@@ -15,47 +15,57 @@ public class Tests extends BaseRunner {
     ThemePage themePage;
     FeedbackPage feedbackPage;
     AboutPage aboutPage;
+
     @Test
     public void testTrending() {
-        mainPage=myApp.getMainPage();
+        mainPage = myApp.getMainPage();
         mainPage.clickLeftMenuElementByName("Trending");
-        trendingPage=myApp.getTrendingPage();
+        trendingPage = myApp.getTrendingPage();
         assertEquals(true, trendingPage.checkExist());
     }
+
     @Test
-    public void changeThemeCheck(){
-        mainPage=myApp.getMainPage();
-        mainPage.clickLeftMenuElementByName("Settings");
-        settingsPage=myApp.getSettingsPage();
-        settingsPage.clickOnTheme();
-        themePage=myApp.getThemePage();
-        themePage.chooseDarkTheme();
+    public void ChangelogCheck() {
+        mainPage = myApp.getMainPage();
+        mainPage.clickLeftMenuElementByName("About");
+        aboutPage = myApp.getAboutPage();
+        aboutPage.scrollToElement("About");
+        assertEquals(true, aboutPage.checkChangelogText());
     }
+
     @Test
-    public void checkToast(){
-        mainPage=myApp.getMainPage();
+    public void changeThemeCheck() {
+        mainPage = myApp.getMainPage();
+        mainPage.clickLeftMenuElementByName("Settings");
+        settingsPage = myApp.getSettingsPage();
+        settingsPage.clickOnTheme();
+        themePage = myApp.getThemePage();
+        themePage.chooseDarkTheme();
+        mainPage.clickLeftMenuElementByName("Settings");
+        settingsPage.clickOnTheme();
+        assertEquals(true, themePage.checkchangedTheme());
+        themePage.returnOldTheme();
+    }
+
+    @Test
+    public void checkToast() {
+        mainPage = myApp.getMainPage();
         mainPage.clickLeftMenuElementByName("Send feedback");
-        feedbackPage=myApp.getFeedbackPage();
+        feedbackPage = myApp.getFeedbackPage();
         feedbackPage.clickOkOnWindow();
         feedbackPage.insertIntoTitle("hello");
         feedbackPage.clickOnDescription();
-        assertEquals(true,feedbackPage.checkModelInfo());
+        assertEquals(true, feedbackPage.checkModelInfo());
         feedbackPage.clickOnSubmit();
         feedbackPage.wait1(1000);
         feedbackPage.clickOnSubmit();
         feedbackPage.wait1(2000);
-        feedbackPage.makeScreenshot("//screen");
+        myApp.makeScreen();
     }
+
     @Test
-    public void ChangelogCheck(){
-        mainPage=myApp.getMainPage();
-        mainPage.clickLeftMenuElementByName("About");
-        aboutPage=myApp.getAboutPage();
-        aboutPage.checkChangelogText();
-    }
-    @Test
-    public void RestorePurchasesCheck(){
-        mainPage=myApp.getMainPage();
+    public void RestorePurchasesCheck() {
+        mainPage = myApp.getMainPage();
         mainPage.clickLeftMenuElementByName("Restore Purchases");
     }
 }

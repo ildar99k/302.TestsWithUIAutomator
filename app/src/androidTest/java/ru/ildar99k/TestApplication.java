@@ -8,41 +8,40 @@ import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.Until;
 import ru.ildar99k.pages.*;
 
+import java.io.File;
+
 public class TestApplication {
-    private UiDevice device;
-    private MainPage mainPage;
-    private SettingsPage settingsPage;
-    private ThemePage themePage;
-    private AboutPage aboutPage;
-    private TrendingPage trendingPage;
-    private FeedbackPage feedbackPage;
+    private final UiDevice device;
+    private final MainPage mainPage;
+    private final SettingsPage settingsPage;
+    private final ThemePage themePage;
+    private final AboutPage aboutPage;
+    private final TrendingPage trendingPage;
+    private final FeedbackPage feedbackPage;
+
     public TestApplication() {
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         device.pressHome();
         final String launcherPackage = device.getLauncherPackageName();
         System.out.println(launcherPackage);
-        // Get launch intent
         String packageName = InstrumentationRegistry.getTargetContext()
                 .getPackageName();
-        System.out.println(packageName);
         device.wait(Until.hasObject(By.pkg(packageName).depth(0)),
-                10000);
+                1000);
         Context context = InstrumentationRegistry.getContext();
         Intent intent = context.getPackageManager()
                 .getLaunchIntentForPackage(packageName);
-
-        // Stat application
         context.startActivity(intent);
         device.wait(Until.hasObject(By.pkg(packageName).depth(0)),
-                1000);
-        // Get page objects
+                10000);
         mainPage = new MainPage(device, packageName);
-        settingsPage=new SettingsPage(device,packageName);
-        themePage=new ThemePage(device,packageName);
-        aboutPage=new AboutPage(device,packageName);
-        trendingPage=new TrendingPage(device, packageName);
-        feedbackPage=new FeedbackPage(device,packageName);
+        settingsPage = new SettingsPage(device, packageName);
+        themePage = new ThemePage(device, packageName);
+        aboutPage = new AboutPage(device, packageName);
+        trendingPage = new TrendingPage(device, packageName);
+        feedbackPage = new FeedbackPage(device, packageName);
     }
+
     public void close() {
         device.pressHome();
     }
@@ -69,5 +68,9 @@ public class TestApplication {
 
     public FeedbackPage getFeedbackPage() {
         return feedbackPage;
+    }
+
+    public void makeScreen() {
+        device.takeScreenshot(new File(InstrumentationRegistry.getContext().getFilesDir(), "Toast Screen " + System.currentTimeMillis()));
     }
 }

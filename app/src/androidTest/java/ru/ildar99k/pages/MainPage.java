@@ -7,10 +7,12 @@ public class MainPage extends Page {
     public MainPage(UiDevice device, String packageName) {
         super(device, packageName);
     }
-    public void openLeftMenu(){
+
+    public void openLeftMenu() {
         getUiObj(By.desc("Перейти вверх")).get(0).click();
     }
-    public void clickLeftMenuElementByName(String name){
+
+    public void clickLeftMenuElementByName(String name) {
         openLeftMenu();
         scrollToElement(name);
         getUiObjByText(name).click();

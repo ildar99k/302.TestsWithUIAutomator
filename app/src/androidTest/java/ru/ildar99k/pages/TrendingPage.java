@@ -8,7 +8,8 @@ public class TrendingPage extends Page {
     public TrendingPage(UiDevice device, String packageName) {
         super(device, packageName);
     }
-    public boolean checkExist(){
+
+    public boolean checkExist() {
         return getUiObj(By.res("com.fastaccess.github.debug:id/toolbar")).get(0)
                 .findObject(By.textContains("Trending")).isEnabled();
     }
