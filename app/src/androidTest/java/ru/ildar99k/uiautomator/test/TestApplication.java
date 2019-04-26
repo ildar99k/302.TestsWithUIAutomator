@@ -1,4 +1,4 @@
-package ru.ildar99k;
+package ru.ildar99k.uiautomator.test;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.Until;
-import ru.ildar99k.pages.*;
+import ru.ildar99k.uiautomator.pages.*;
 
 import java.io.File;
 

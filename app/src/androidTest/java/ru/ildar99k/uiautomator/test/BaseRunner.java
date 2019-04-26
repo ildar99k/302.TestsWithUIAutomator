@@ -1,4 +1,4 @@
-package ru.ildar99k;
+package ru.ildar99k.uiautomator.test;
 
 import org.junit.After;
 import org.junit.Before;

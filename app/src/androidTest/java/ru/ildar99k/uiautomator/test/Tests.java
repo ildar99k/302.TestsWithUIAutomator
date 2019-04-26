@@ -1,9 +1,10 @@
-package ru.ildar99k;
+package ru.ildar99k.uiautomator.test;
 
 import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import ru.ildar99k.pages.*;
+import ru.ildar99k.uiautomator.pages.*;
+import ru.ildar99k.uiautomator.test.BaseRunner;
 
 import static org.junit.Assert.assertEquals;
 

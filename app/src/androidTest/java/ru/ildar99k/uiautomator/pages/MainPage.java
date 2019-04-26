@@ -1,4 +1,4 @@
-package ru.ildar99k.pages;
+package ru.ildar99k.uiautomator.pages;
 
 import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.UiDevice;
